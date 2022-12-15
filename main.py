@@ -12,4 +12,23 @@ def msgs(id, name, text):
                     "name": name,
                     "text": text}), 200
 
+@app.route('/signup/<id>/<name>/<passw>/')
+def signu(id, name, passw):
+    SignUp(id, name, passw)
+    return jsonify({"id": id,
+                    "name": name,
+                    "pass": passw}), 200
+
+@app.route('/create/<id>/<name>/')
+def createSv(id, name):
+    createServer(id, name)
+    return jsonify({"id": id,
+                    "name": name}), 200
+
+@app.route('/channel/<id>/<name>/')
+def createChan(id, name):
+    createServer(id, name)
+    return jsonify({"id": id,
+                    "name": name}), 200
+
 app.run()
