@@ -1,1 +1,1 @@
-Watashimo wakarankedo korewa ii appuni dekiru!!!
+Watashimo wakarankedo korewa ii appurini dekiru!!!
