@@ -1,13 +1,18 @@
 from flask import Flask
-from DB import *
+from DB import SignUp, msg, createChan, createServer
+import random
 
 app = Flask(__name__)
 
 from flask import jsonify
 
+@app.route("/")
+def home():
+    return "HELLOOO"
+
 @app.route('/msg/<id>/<name>/<text>/')
 def msgs(id, name, text):
-    msg("Msgs", text, id)
+    msg(id, text, text)
     return jsonify({"id": id,
                     "name": name,
                     "text": text}), 200
@@ -26,9 +31,12 @@ def createSv(id, name):
                     "name": name}), 200
 
 @app.route('/channel/<id>/<name>/')
-def createChan(id, name):
-    createServer(id, name)
+def createCha(id, name):
+    createChan(id, name)
     return jsonify({"id": id,
                     "name": name}), 200
 
-app.run()
+app.run(
+    host='0.0.0.0',
+	port=random.randint(2000,9000)
+)
